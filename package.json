@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "mkdirp": "^3.0.1",
+    "moment": "^2.29.4",
+    "node-media-server": "^2.6.2"
+  }
+}
