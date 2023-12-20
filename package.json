@@ -3,7 +3,8 @@
     "fluent-ffmpeg": "^2.1.2",
     "mkdirp": "^3.0.1",
     "moment": "^2.29.4",
-    "node-media-server": "^2.6.2"
+    "node-media-server": "https://github.com/Rahul-ambiplatforms/NMS-SDK-Ambicam.git",
+    "nodemon": "^3.0.2"
   },
   "scripts": {
     "start": "nodemon app.js"
