@@ -14,7 +14,8 @@ COPY package*.json ./
 COPY . .
 
 # Expose RTMP and HTTP ports
-EXPOSE 1935 8000
+EXPOSE 1935 
+EXPOSE 8000
 
 # Run NodeMediaServer when the container starts
 CMD [ "npm", "start" ]
