@@ -37,10 +37,12 @@ nms.on('postPublish', (id, StreamPath, args) => {
     fs.mkdirSync(todayFolderPath, { recursive: true });
   }
 
-   // Create the initial m3u8 file with basic header information
-   const m3u8Content = ``;
-   const m3u8FilePath = path.join(todayFolderPath, 'index.m3u8');
-   fs.writeFileSync(m3u8FilePath, m3u8Content);
+  // Create the initial m3u8 file only if it doesn't exist
+  const m3u8FilePath = path.join(todayFolderPath, 'index.m3u8');
+  if (!fs.existsSync(m3u8FilePath)) {
+    const m3u8Content = ``;
+    fs.writeFileSync(m3u8FilePath, m3u8Content);
+  }
 
    
   const taskConfig = {
