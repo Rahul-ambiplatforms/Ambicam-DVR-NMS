@@ -6,10 +6,23 @@ ENV TZ=Asia/Kolkata
 
 # Install required dependencies
 RUN apt-get update \
-    && apt-get install -y wget apt-utils
+    && apt-get install -y wget apt-utils fuse libcurl3-gnutls libgnutls30 cron 
+
+
+# install blobfuse
+RUN apt-get update \
+    && apt-get install -y wget apt-utils \
+    && wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb \
+    && dpkg -i packages-microsoft-prod.deb \
+    && apt-get remove -y wget \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends fuse blobfuse libcurl3-gnutls libgnutls30 
+    
 
 # Install dependencies
 RUN apt-get update && apt-get install -y ffmpeg
+# Install cron
+RUN apt-get install -y cron
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -32,4 +45,5 @@ EXPOSE 8000
 EXPOSE 443
 
 # Run blobfuse to mount Azure Blob Storage
-CMD /usr/src/app/run.sh
+CMD service cron start &&  /usr/src/app/run.sh
+
