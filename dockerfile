@@ -27,8 +27,8 @@ RUN npm install -g pm2
 COPY . .
 
 # Expose RTMP and HTTP ports
-EXPOSE 1935 
-EXPOSE 8000
+EXPOSE 1938 
+EXPOSE 8080
 EXPOSE 443
 
 # Run blobfuse to mount Azure Blob Storage

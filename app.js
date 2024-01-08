@@ -13,14 +13,14 @@ const app = express();
 
 const config = {
   rtmp: {
-    port: 1935,
+    port: 1938,
     chunk_size: 60000,
     gop_cache: true,
     ping: 60,
     ping_timeout: 30,
   },
   http: {
-    port: 8000,
+    port: 8080,
     allow_origin: '*',
     mediaroot: "/mnt/Recordings",
   },
@@ -30,8 +30,8 @@ const config = {
   },
   https: {
     port: 443,
-    key: './newkey.pem',
-    cert: './cert.pem',
+    key: './ambicam.key',
+    cert: './ambicam.crt',
   },
 };
 
@@ -43,7 +43,7 @@ nms.on('postPublish', async (id, StreamPath, args) => {
   try {
   console.log('[NodeEvent on postPublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
 
-  const ws = new WebSocket('ws://64.227.188.130:4000');
+  const ws = new WebSocket('wss://orca-app-x5vfq.ondigitalocean.app');
    // Create a new WebSocket connection for the stream
    ws.on('open', async function open() {
      console.log('WebSocket connection established.');
