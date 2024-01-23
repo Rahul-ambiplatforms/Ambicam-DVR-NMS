@@ -1,22 +1,18 @@
 {
-  "dependencies": {
-    "@azure/storage-blob": "^12.17.0",
-    "axios": "^1.6.3",
-    "fluent-ffmpeg": "^2.1.2",
-    "fuse-native": "^2.2.6",
-    "ip": "^1.1.8",
-    "mkdirp": "^3.0.1",
-    "moment": "^2.29.4",
-    "node-media-server": "https://github.com/Rahul-ambiplatforms/NMS-SDK-Ambicam.git",
-    "nodemon": "^3.0.2",
-    "ws": "^8.16.0"
-  },
+  "name": "new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "build": "ncc build app.js -o dist"
-
   },
-  "bin": {
-    "dummy-executable": "bin/dummy-executable.js"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.30.1",
+    "node-media-server": "^2.6.2"
   }
 }
